@@ -1,28 +1,28 @@
-import globals from 'globals';
-import jsPlugin from '@eslint/js';
-import tsEslint from 'typescript-eslint';
-import parser from '@typescript-eslint/parser';
+import globals from "globals";
+import jsPlugin from "@eslint/js";
+import tsEslint from "typescript-eslint";
+import parser from "@typescript-eslint/parser";
 
-import importPlugin from 'eslint-plugin-import';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
+import importPlugin from "eslint-plugin-import";
+import reactHooks from "eslint-plugin-react-hooks";
+import reactRefresh from "eslint-plugin-react-refresh";
 
-import airbnbBestPractices from 'eslint-config-airbnb-base/rules/best-practices';
-import airbnbErrors from 'eslint-config-airbnb-base/rules/errors';
-import airbnbNode from 'eslint-config-airbnb-base/rules/node';
-import airbnbStyle from 'eslint-config-airbnb-base/rules/style';
-import airbnbVariables from 'eslint-config-airbnb-base/rules/variables';
-import airbnbEs6 from 'eslint-config-airbnb-base/rules/es6';
-import airbnbStrict from 'eslint-config-airbnb-base/rules/strict';
+import airbnbBestPractices from "eslint-config-airbnb-base/rules/best-practices";
+import airbnbErrors from "eslint-config-airbnb-base/rules/errors";
+import airbnbNode from "eslint-config-airbnb-base/rules/node";
+import airbnbStyle from "eslint-config-airbnb-base/rules/style";
+import airbnbVariables from "eslint-config-airbnb-base/rules/variables";
+import airbnbEs6 from "eslint-config-airbnb-base/rules/es6";
+import airbnbStrict from "eslint-config-airbnb-base/rules/strict";
 
 export default tsEslint.config(
-  { ignores: ['dist'] },
+  { ignores: ["dist"] },
   {
     extends: [
       jsPlugin.configs.recommended,
       ...tsEslint.configs.recommended,
     ],
-    files: ['**/*.{ts,tsx,js,mjs}'],
+    files: ["**/*.{ts,tsx,js,mjs}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: {
@@ -32,8 +32,8 @@ export default tsEslint.config(
       parser,
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
       import: importPlugin,
     },
     rules: {
@@ -46,9 +46,23 @@ export default tsEslint.config(
       ...airbnbVariables.rules,
       ...airbnbEs6.rules,
       ...airbnbStrict.rules,
-      'react-refresh/only-export-components': [
-        'warn',
+      "react-refresh/only-export-components": [
+        "warn",
         { allowConstantExport: true },
+      ],
+      quotes: [
+        "error",
+        "double",
+      ],
+      "jsx-quotes": [
+        "error",
+        "prefer-double",
+      ],
+      "@typescript-eslint/no-explicit-any": [
+        "warn",
+        {
+          ignoreRestArgs: false,
+        },
       ],
     },
   },

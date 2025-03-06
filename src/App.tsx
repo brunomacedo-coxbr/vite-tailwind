@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className="justify-center flex bla-bla">
+      <div className="justify-center flex">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} alt="Vite logo" />
         </a>
