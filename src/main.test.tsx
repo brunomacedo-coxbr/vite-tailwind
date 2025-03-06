@@ -1,10 +1,11 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("listBoxOptions tests", () => {
-  render(<App />);
+describe("App Component", () => {
+  it("should render the App component", () => {
+    render(<App />);
 
-  it("should build listBox option; selectedOptions is empty", () => {
-    expect(0).toEqual(0);
+    const element = screen.getByText(/vite \+ react/i);
+    expect(element).toBeInTheDocument();
   });
 });
