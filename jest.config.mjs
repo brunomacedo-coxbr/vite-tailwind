@@ -1,7 +1,4 @@
 export default {
-  /* transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest",
-  }, */
   testEnvironment: "jsdom",
   transformIgnorePatterns: [
     "/node_modules/(?!your-module-name-to-transform|another-module).+\\.js$"
