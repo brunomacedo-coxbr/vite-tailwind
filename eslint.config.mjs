@@ -1,24 +1,26 @@
 import globals from 'globals';
-// import jsPlugin from '@eslint/js';
+import jsPlugin from '@eslint/js';
 import tsEslint from 'typescript-eslint';
 import parser from '@typescript-eslint/parser';
+
 import importPlugin from 'eslint-plugin-import';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 
-// import tailwindcss from 'eslint-plugin-tailwindcss';
-
-// import style from 'eslint-config-airbnb-base/rules/style';
-// import bestPractices from 'eslint-config-airbnb-base/rules/best-practices';
-// import variables from "eslint-config-airbnb-base/rules/variables";
+import airbnbBestPractices from 'eslint-config-airbnb-base/rules/best-practices';
+import airbnbErrors from 'eslint-config-airbnb-base/rules/errors';
+import airbnbNode from 'eslint-config-airbnb-base/rules/node';
+import airbnbStyle from 'eslint-config-airbnb-base/rules/style';
+import airbnbVariables from 'eslint-config-airbnb-base/rules/variables';
+import airbnbEs6 from 'eslint-config-airbnb-base/rules/es6';
+import airbnbStrict from 'eslint-config-airbnb-base/rules/strict';
 
 export default tsEslint.config(
   { ignores: ['dist'] },
   {
     extends: [
-      // jsPlugin.configs.recommended,
-      // ...tsEslint.configs.recommended,
-      // ...tailwindcss.configs['flat/recommended'],
+      jsPlugin.configs.recommended,
+      ...tsEslint.configs.recommended,
     ],
     files: ['**/*.{ts,tsx,js,mjs}'],
     languageOptions: {
@@ -35,15 +37,19 @@ export default tsEslint.config(
       import: importPlugin,
     },
     rules: {
-      // ...reactHooks.configs.recommended.rules,
-      // ...tsEslint.configs.recommended.rules,
-      // ...bestPractices.rules,
-      // ...variables.rules,
-      // ...style.rules,
-      /* 'react-refresh/only-export-components': [
+      ...reactHooks.configs.recommended.rules,
+      ...tsEslint.configs.recommended.rules,
+      ...airbnbBestPractices.rules,
+      ...airbnbErrors.rules,
+      ...airbnbNode.rules,
+      ...airbnbStyle.rules,
+      ...airbnbVariables.rules,
+      ...airbnbEs6.rules,
+      ...airbnbStrict.rules,
+      'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
-      ], */
+      ],
     },
   },
 );

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import reactLogo from './assets/react.svg'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className='justify-center flex bla-bla'>
+      <div className="justify-center flex bla-bla">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} alt="Vite logo" />
         </a>
